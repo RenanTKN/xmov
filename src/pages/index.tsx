@@ -1,5 +1,6 @@
 import Head from "next/head";
 import { GetServerSideProps } from "next";
+import { Container, Grid } from "@material-ui/core";
 
 import { ChallengesProvider } from "../contexts/ChallengesContext";
 import { ExperienceBar } from "../components/ExperienceBar";
@@ -8,8 +9,6 @@ import { CompletedChallenges } from "../components/CompletedChallenges";
 import { Countdown } from "../components/Countdown";
 import { ChallengeBox } from "../components/ChallengeBox";
 import { CountdownProvider } from "../contexts/CountdownContext";
-
-import styles from "../styles/pages/Home.module.css";
 
 interface HomeProps {
   level: number;
@@ -24,24 +23,30 @@ export default function Home(props: HomeProps) {
       currentExperience={props.currentExperience}
       challengesCompleted={props.challengesCompleted}
     >
-      <div className={styles.container}>
-        <Head>
-          <title>Início | xmov</title>
-        </Head>
-        <ExperienceBar />
-        <CountdownProvider>
-          <section>
-            <div>
-              <Profile />
-              <CompletedChallenges />
-              <Countdown />
-            </div>
-            <div>
-              <ChallengeBox />
-            </div>
-          </section>
-        </CountdownProvider>
-      </div>
+      <Head>
+        <title>Início | xmov</title>
+      </Head>
+      <Container maxWidth="md">
+        <Grid container spacing={2}>
+          <Grid item xs={12}>
+            <ExperienceBar />
+          </Grid>
+          <Grid item xs={12}>
+            <CountdownProvider>
+              <Grid container spacing={4}>
+                <Grid item md={6} xs={12}>
+                  <Profile />
+                  <CompletedChallenges />
+                  <Countdown />
+                </Grid>
+                <Grid item md={6} xs={12}>
+                  <ChallengeBox />
+                </Grid>
+              </Grid>
+            </CountdownProvider>
+          </Grid>
+        </Grid>
+      </Container>
     </ChallengesProvider>
   );
 }

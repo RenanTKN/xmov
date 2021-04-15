@@ -1,4 +1,5 @@
 import { useContext } from "react";
+import { Grid } from "@material-ui/core";
 
 import { CountdownContext } from "../contexts/CountdownContext";
 
@@ -18,18 +19,22 @@ export const Countdown = () => {
   const [secondLeft, secondRight] = String(seconds).padStart(2, "0").split("");
 
   return (
-    <div>
-      <div className={styles.countdownContainer}>
-        <div>
-          <span>{minuteLeft}</span>
-          <span>{minuteRight}</span>
-        </div>
-        <span>:</span>
-        <div>
-          <span>{secondLeft}</span>
-          <span>{secondRight}</span>
-        </div>
-      </div>
+    <Grid container>
+      <Grid item xs={12} className={styles.countdownContainer}>
+        <Grid container justify="center" wrap="nowrap">
+          <Grid item>
+            <span>{minuteLeft}</span>
+            <span>{minuteRight}</span>
+          </Grid>
+          <Grid item component="span">
+            :
+          </Grid>
+          <Grid item>
+            <span>{secondLeft}</span>
+            <span>{secondRight}</span>
+          </Grid>
+        </Grid>
+      </Grid>
       {hasFinished ? (
         <button className={styles.countdownButton} disabled>
           Ciclo encerrado
@@ -54,6 +59,6 @@ export const Countdown = () => {
           )}
         </>
       )}
-    </div>
+    </Grid>
   );
 };
