@@ -23,15 +23,23 @@ export const Countdown = () => {
       <Grid item xs={12} className={styles.countdownContainer}>
         <Grid container justify="center" wrap="nowrap">
           <Grid item>
-            <span>{minuteLeft}</span>
-            <span>{minuteRight}</span>
+            <div>
+              <div>{minuteLeft}</div>
+            </div>
+            <div>
+              <div>{minuteRight}</div>
+            </div>
           </Grid>
           <Grid item component="span">
             :
           </Grid>
           <Grid item>
-            <span>{secondLeft}</span>
-            <span>{secondRight}</span>
+            <div>
+              <div>{secondLeft}</div>
+            </div>
+            <div>
+              <div>{secondRight}</div>
+            </div>
           </Grid>
         </Grid>
       </Grid>

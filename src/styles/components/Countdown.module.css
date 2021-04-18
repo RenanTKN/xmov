@@ -17,18 +17,22 @@
   text-align: center;
 }
 
-.countdownContainer > div > div span {
+.countdownContainer > div > div > div {
   flex: 1;
   padding: 0 1rem;
-  margin-top: .3rem;
+  margin-top: 0.3rem;
 }
 
-.countdownContainer > div > div span:first-child {
+.countdownContainer > div > div > div:first-child {
   border-right: 1px solid #f0f1f3;
 }
 
-.countdownContainer > div > div span:last-child {
+.countdownContainer > div > div > div:last-child {
   border-left: 1px solid #f0f1f3;
+}
+
+.countdownContainer > div > div > div > div {
+  width: 70px;
 }
 
 .countdownContainer > div > span {
@@ -73,11 +77,15 @@
 }
 
 @media (max-width: 600px) {
-  .countdownContainer > div {
-    font-size: 3rem;
+  .countdownContainer > div > div {
+    font-size: 6rem;
   }
 
-  .countdownContainer > span {
-    font-size: 2rem;
+  .countdownContainer > div > div > div > div {
+    width: 50px;
+  }
+
+  .countdownContainer > div > span {
+    font-size: 5rem;
   }
 }
