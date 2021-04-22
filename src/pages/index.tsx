@@ -1,19 +1,18 @@
 import Head from "next/head";
 import { GetServerSideProps } from "next";
-import { Container, Grid } from "@material-ui/core";
 
+import App from "../components/App";
 import { ChallengesProvider } from "../contexts/ChallengesContext";
-import { ExperienceBar } from "../components/ExperienceBar";
-import { Profile } from "../components/Profile";
-import { CompletedChallenges } from "../components/CompletedChallenges";
-import { Countdown } from "../components/Countdown";
-import { ChallengeBox } from "../components/ChallengeBox";
-import { CountdownProvider } from "../contexts/CountdownContext";
+import { UserProvider } from "../contexts/UserContext";
 
 interface HomeProps {
   level: number;
   currentExperience: number;
   challengesCompleted: number;
+  email: string;
+  image: string;
+  name: string;
+  isAuthenticated: boolean;
 }
 
 export default function Home(props: HomeProps) {
@@ -26,39 +25,45 @@ export default function Home(props: HomeProps) {
       <Head>
         <title>Início | xmov</title>
       </Head>
-      <Container maxWidth="md">
-        <Grid container spacing={2}>
-          <Grid item xs={12}>
-            <ExperienceBar />
-          </Grid>
-          <Grid item xs={12}>
-            <CountdownProvider>
-              <Grid container spacing={4}>
-                <Grid item md={6} xs={12}>
-                  <Profile />
-                  <CompletedChallenges />
-                  <Countdown />
-                </Grid>
-                <Grid item md={6} xs={12}>
-                  <ChallengeBox />
-                </Grid>
-              </Grid>
-            </CountdownProvider>
-          </Grid>
-        </Grid>
-      </Container>
+      <UserProvider
+        email={props.email}
+        name={props.name}
+        image={props.image}
+        isAuthenticated={props.isAuthenticated}
+      >
+        <App />
+      </UserProvider>
     </ChallengesProvider>
   );
 }
 
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
-  const { level, currentExperience, challengesCompleted } = ctx.req.cookies;
+  const {
+    email,
+    image,
+    name,
+    level,
+    currentExperience,
+    challengesCompleted,
+  } = ctx.req.cookies;
 
-  return {
-    props: {
-      level: Number(level),
-      currentExperience: Number(currentExperience),
-      challengesCompleted: Number(challengesCompleted),
-    },
-  };
+  if (!!email && !!name && !!image) {
+    return {
+      props: {
+        isAuthenticated: true,
+        level: Number(level),
+        currentExperience: Number(currentExperience),
+        challengesCompleted: Number(challengesCompleted),
+        email,
+        name,
+        image,
+      },
+    };
+  } else {
+    return {
+      props: {
+        isAuthenticated: false,
+      },
+    };
+  }
 };
