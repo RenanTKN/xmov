@@ -1,6 +1,33 @@
+# xmov
+
+## Introduction
+
+This is a Next.js web app project based on [Pomodoro Technique](https://en.wikipedia.org/wiki/Pomodoro_Technique). When you hit the "Start new cycle" button a timer will start a countdown from 25 min. In the meantime, you can fully focus on your task. When the time reaches 0, it will give you a challenge, the type of the challenge can be for body or eyes. You'll get XP and level up as you complete the challenges.
+
+This project was created following a [Rocketseat](https://rocketseat.com.br/) course, but some extra features were added.
+
+### New features
+
+- Responsive design
+- Translation (EN and PT)
+- Menu with some options
+- Login using OAuth Google
+- Logout
+- README
+
+### App UI
+
+![App](./img/app.png)
+
+## Demo
+
+- https://xmov.vercel.app/
+
+## Project
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Getting Started
+### Getting Started
 
 First, run the development server:
 
@@ -12,23 +39,10 @@ yarn dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+## Issues
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+- The progress of the user is saved on cookies, which means, if you login into another browser or computer, your level will return to 0. Or if someone else logs in in your browser you'll share the same level.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+- You need to log out to change the language since it's only on the login menu.
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- There's no option to change the countdown value, I keep it 25 min because it's recommended.
