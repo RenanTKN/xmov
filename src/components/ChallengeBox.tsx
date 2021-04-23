@@ -2,6 +2,7 @@ import { useContext } from "react";
 
 import { ChallengesContext } from "../contexts/ChallengesContext";
 import { CountdownContext } from "../contexts/CountdownContext";
+import { useTranslate } from "../lang/translate";
 
 import styles from "../styles/components/ChallengeBox.module.css";
 
@@ -10,6 +11,7 @@ export const ChallengeBox = () => {
     ChallengesContext
   );
   const { resetCountdown } = useContext(CountdownContext);
+  const { translate } = useTranslate();
 
   const handleChallengeSucceeded = () => {
     completeChallenge();
@@ -25,10 +27,12 @@ export const ChallengeBox = () => {
     <div className={styles.challengeBoxContainer}>
       {activeChallenge ? (
         <div className={styles.challengeActive}>
-          <header>Ganhe {activeChallenge.amount} xp</header>
+          <header>
+            {translate("getXp")} {activeChallenge.amount} xp
+          </header>
           <main>
             <img src={`icons/${activeChallenge.type}.svg`} />
-            <strong>Novo desafio</strong>
+            <strong>{translate("newChallenge")}</strong>
             <p>{activeChallenge.description}</p>
           </main>
           <footer>
@@ -36,22 +40,22 @@ export const ChallengeBox = () => {
               className={styles.challengeFailButton}
               onClick={handleChallengeFailed}
             >
-              Falhei
+              {translate("failed")}
             </button>
             <button
               className={styles.challengeSucceededButton}
               onClick={handleChallengeSucceeded}
             >
-              Completei
+              {translate("completed")}
             </button>
           </footer>
         </div>
       ) : (
         <div className={styles.challengeNotActive}>
-          <strong>Finalize um ciclo para receber desafios</strong>
+          <strong>{translate("getNewChallenge")}</strong>
           <p>
             <img src="icons/level-up.svg" alt="Level up" />
-            Avance completando os desafios
+            {translate("completeToLevelUp")}
           </p>
         </div>
       )}

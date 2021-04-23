@@ -4,6 +4,7 @@ import Cookies from "js-cookie";
 
 import challenges from "../../challenges.json";
 import { LevelUpModal } from "../components/LevelUpModal";
+import { useTranslate } from "../lang/translate";
 
 interface Challenge {
   type: "body" | "eye";
@@ -46,6 +47,7 @@ export const ChallengesProvider = ({
   );
   const [activeChallenge, setActiveChallenge] = useState(null);
   const [isLevelUpModalOpen, setIsLevelUpModalOpen] = useState(false);
+  const { translate } = useTranslate();
 
   const experienceToNextLevel = Math.pow((level + 1) * 4, 2);
 
@@ -77,8 +79,8 @@ export const ChallengesProvider = ({
     new Audio("/notification.mp3").play();
 
     if (Notification.permission === "granted") {
-      new Notification("Novo desafio 🎉", {
-        body: `Valendo ${challenge.amount}xp!`,
+      new Notification(`${translate("newChallenge")} 🎉`, {
+        body: `${translate("getXp")} ${challenge.amount}xp!`,
       });
     }
   };

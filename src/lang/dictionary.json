@@ -1,0 +1,36 @@
+{
+  "en": {
+    "login": "Log in to access xmov",
+    "challengesCompleted": "Challenges completed",
+    "settings": "Settings",
+    "logout": "Logout",
+    "getNewChallenge": "End a cycle to get challenges",
+    "completeToLevelUp": "Level up by completing the challenges",
+    "newCycle": "Start new cycle",
+    "cancelCycle": "Cancel cycle",
+    "finishedCycle": "Finished cycle",
+    "newChallenge": "New challenge",
+    "getXp": "Get",
+    "failed": "Failed",
+    "completed": "Completed",
+    "congratulations": "Congratulations",
+    "levelUp": "You have reached a new level."
+  },
+  "pt": {
+    "login": "Faça login para acessar o xmov",
+    "challengesCompleted": "Desafios completos",
+    "settings": "Configurações",
+    "logout": "Sair",
+    "getNewChallenge": "Finalize um ciclo para receber desafios",
+    "completeToLevelUp": "Avance completando os desafios",
+    "newCycle": "Iniciar um ciclo",
+    "cancelCycle": "Abandonar ciclo",
+    "finishedCycle": "Ciclo encerrado",
+    "newChallenge": "Novo desafio",
+    "getXp": "Ganhe",
+    "failed": "Falhei",
+    "completed": "Completei",
+    "congratulations": "Parabéns",
+    "levelUp": "Você alcançou um novo level."
+  }
+}
