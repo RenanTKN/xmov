@@ -1,10 +1,16 @@
-import { createContext, useState, ReactNode, useEffect } from "react";
+import {
+  createContext,
+  useState,
+  ReactNode,
+  useEffect,
+  useContext,
+} from "react";
 
 import Cookies from "js-cookie";
 
 import challenges from "../../challenges.json";
 import { LevelUpModal } from "../components/LevelUpModal";
-import { useTranslate } from "../lang/translate";
+import { TranslateContext } from "../contexts/TranslateContext";
 
 interface Challenge {
   type: "body" | "eye";
@@ -47,7 +53,7 @@ export const ChallengesProvider = ({
   );
   const [activeChallenge, setActiveChallenge] = useState(null);
   const [isLevelUpModalOpen, setIsLevelUpModalOpen] = useState(false);
-  const { translate } = useTranslate();
+  const { translate } = useContext(TranslateContext);
 
   const experienceToNextLevel = Math.pow((level + 1) * 4, 2);
 

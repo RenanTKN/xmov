@@ -14,9 +14,9 @@ import SettingsIcon from "@material-ui/icons/Settings";
 
 import { ChallengesContext } from "../contexts/ChallengesContext";
 import { UserContext } from "../contexts/UserContext";
+import { TranslateContext } from "../contexts/TranslateContext";
 
 import styles from "../styles/components/Profile.module.css";
-import { useTranslate } from "../lang/translate";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -46,7 +46,7 @@ const useStyles = makeStyles((theme: Theme) =>
 export const Profile = (): JSX.Element => {
   const { level, challengesCompleted } = useContext(ChallengesContext);
   const { name, image, email, logout } = useContext(UserContext);
-  const { translate } = useTranslate();
+  const { translate } = useContext(TranslateContext);
 
   const classes = useStyles();
 

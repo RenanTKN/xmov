@@ -4,7 +4,7 @@ import { GoogleLogin } from "react-google-login";
 import { Button, ButtonGroup } from "@material-ui/core";
 
 import { UserContext } from "../contexts/UserContext";
-import { useTranslate } from "../lang/translate";
+import { TranslateContext } from "../contexts/TranslateContext";
 
 import styles from "../styles/components/Login.module.css";
 
@@ -12,7 +12,7 @@ export const Login = (): JSX.Element => {
   const { setName, setImage, setEmail, setIsAuthenticated } = useContext(
     UserContext
   );
-  const { translate, setLanguage, languages } = useTranslate();
+  const { translate, setLanguage, languages } = useContext(TranslateContext);
 
   const successResponse = (response) => {
     const { email, name, imageUrl } = response.profileObj;

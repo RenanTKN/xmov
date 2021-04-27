@@ -2,7 +2,7 @@ import { useContext } from "react";
 
 import { ChallengesContext } from "../contexts/ChallengesContext";
 import { CountdownContext } from "../contexts/CountdownContext";
-import { useTranslate } from "../lang/translate";
+import { TranslateContext } from "../contexts/TranslateContext";
 
 import styles from "../styles/components/ChallengeBox.module.css";
 
@@ -11,7 +11,7 @@ export const ChallengeBox = () => {
     ChallengesContext
   );
   const { resetCountdown } = useContext(CountdownContext);
-  const { translate } = useTranslate();
+  const { translate } = useContext(TranslateContext);
 
   const handleChallengeSucceeded = () => {
     completeChallenge();

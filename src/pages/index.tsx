@@ -4,6 +4,7 @@ import { GetServerSideProps } from "next";
 import App from "../components/App";
 import { ChallengesProvider } from "../contexts/ChallengesContext";
 import { UserProvider } from "../contexts/UserContext";
+import { TranslateProvider } from "../contexts/TranslateContext";
 
 interface HomeProps {
   level: number;
@@ -17,23 +18,25 @@ interface HomeProps {
 
 export default function Home(props: HomeProps) {
   return (
-    <ChallengesProvider
-      level={props.level}
-      currentExperience={props.currentExperience}
-      challengesCompleted={props.challengesCompleted}
-    >
-      <Head>
-        <title>Início | xmov</title>
-      </Head>
-      <UserProvider
-        email={props.email}
-        name={props.name}
-        image={props.image}
-        isAuthenticated={props.isAuthenticated}
+    <TranslateProvider>
+      <ChallengesProvider
+        level={props.level}
+        currentExperience={props.currentExperience}
+        challengesCompleted={props.challengesCompleted}
       >
-        <App />
-      </UserProvider>
-    </ChallengesProvider>
+        <Head>
+          <title>Início | xmov</title>
+        </Head>
+        <UserProvider
+          email={props.email}
+          name={props.name}
+          image={props.image}
+          isAuthenticated={props.isAuthenticated}
+        >
+          <App />
+        </UserProvider>
+      </ChallengesProvider>
+    </TranslateProvider>
   );
 }
 

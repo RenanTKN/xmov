@@ -2,9 +2,9 @@ import { useContext } from "react";
 import { Grid } from "@material-ui/core";
 
 import { CountdownContext } from "../contexts/CountdownContext";
+import { TranslateContext } from "../contexts/TranslateContext";
 
 import styles from "../styles/components/Countdown.module.css";
-import { useTranslate } from "../lang/translate";
 
 export const Countdown = () => {
   const {
@@ -15,7 +15,7 @@ export const Countdown = () => {
     startCountdown,
     resetCountdown,
   } = useContext(CountdownContext);
-  const { translate } = useTranslate();
+  const { translate } = useContext(TranslateContext);
 
   const [minuteLeft, minuteRight] = String(minutes).padStart(2, "0").split("");
   const [secondLeft, secondRight] = String(seconds).padStart(2, "0").split("");
