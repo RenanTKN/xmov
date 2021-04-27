@@ -49,3 +49,5 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 - There's no option to change the countdown value, I keep it 25 min because it's recommended.
 
 - Fix a unexpected error on some mobile devices
+
+- There is no translation for the [challenges](challenges.json) yet
