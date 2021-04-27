@@ -46,3 +46,5 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 - You need to log out to change the language since it's only on the login menu.
 
 - There's no option to change the countdown value, I keep it 25 min because it's recommended.
+
+- Fix a unexpected error on some mobile deviced
