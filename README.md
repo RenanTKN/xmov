@@ -22,6 +22,7 @@ This project was created following a [Rocketseat](https://rocketseat.com.br/) co
 ## Demo
 
 - https://xmov.vercel.app/
+- If you want to check how the level up works check this version (countdown 5s) https://xmov-renantkn.vercel.app/
 
 ## Project
 
